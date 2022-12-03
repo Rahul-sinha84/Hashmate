@@ -1,0 +1,10 @@
+{
+  "config": {
+    "definitions": {
+      "HashmateProfile": "kjzl6cwe1jw145xfhikhbso8yxczey976lol807m8mat2nlyt3ik0t16b6evow2"
+    },
+    "schemas": {
+      "profile": "ceramic://k3y52l7qbv1frxspsq1c5ln0y3czioiq8a5sa587mjin3rurbujfxr5pimu2v46ps"
+    }
+  }
+}

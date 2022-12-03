@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   checkMetamaskStatus,
   connectMetamask,
@@ -12,6 +12,10 @@ import {
   changeMetamaskConnectFunction,
   changeMetamaskStatus,
 } from "../redux/action";
+import { ThreeIdConnect } from "@3id/connect";
+import { CeramicClient } from "@ceramicnetwork/http-client";
+import utils from "./utils";
+import { authenticateWithEthereum, storeOnIpfs, getItems } from "./helpers";
 
 const Layout = ({
   children,
@@ -24,6 +28,11 @@ const Layout = ({
   const { currentAccount, load, metamaskStatus, metamaskConnectFunction } =
     state;
 
+  const { objToBlob, unit8ArrayToString } = utils;
+
+  const ceramic = useRef(null);
+  const threeid = useRef(null);
+
   //default
   useEffect(() => {
     firstFunc(changeCurrentAccount, changeMetamaskStatus);
@@ -31,13 +40,21 @@ const Layout = ({
     changeMetamaskConnectFunction(connectMetamask);
   }, []);
 
-  // for updating the change when metamask configuration changes !!
   useEffect(() => {
-    // function to update the values of state
-    //    getContractData();
-    // for listening of events
-    //    listenToEvents(contract);
-  }, [currentAccount, load]);
+    if (metamaskStatus && currentAccount) {
+      (async () => {
+        ceramic.current = new CeramicClient(
+          "https://ceramic-clay.3boxlabs.com"
+        );
+        threeid.current = new ThreeIdConnect();
+        await authenticateWithEthereum(currentAccount, threeid, ceramic);
+        // run();
+        // let obj = { name: "rahul", link: "test.com" };
+        // await storeOnIpfs(obj, ceramic);
+        await getItems(ceramic);
+      })();
+    }
+  }, [currentAccount]);
 
   return (
     <>
@@ -63,3 +80,4 @@ export default connect(mapStateToState, {
   changeMetamaskStatus,
   changeCurrentAccount,
 })(Layout);
+let obj = { name: "rahul", link: "test.com" };
