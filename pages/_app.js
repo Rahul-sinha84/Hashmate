@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import Layout from "../components/Layout";
 import { wrapper, store } from "../redux/init";
-import "../styles/globals.css";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
