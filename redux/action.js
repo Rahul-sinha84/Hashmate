@@ -5,7 +5,7 @@ import {
   METAMASK_STATUS,
 } from "./types";
 
-export const changeCurrectAccount = (payload) => ({
+export const changeCurrentAccount = (payload) => ({
   type: CURRENT_ACCOUNT,
   payload,
 });
