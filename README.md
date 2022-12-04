@@ -23,12 +23,13 @@ yarn dev
 ```
 Open http://localhost:3000 with your browser to see the result.
 
-## Features
+## Deployment
 
-- Decentralised storage of passwords
-- Data secured by Hashed DID. 
-- LIT Protocol for encryption/decryption
-- Easy to use
+
+```bash
+https://hashmate.vercel.app/
+```
+
 
 ## Tech Stack
 
@@ -37,6 +38,14 @@ Open http://localhost:3000 with your browser to see the result.
 **Data Storage :** Ceramic & IPFS
 
 
+## Features
+
+- Decentralised storage of passwords
+- DID passwords
+- LIT Protocol for encryption/decryption
+- Easy to use
+
 ## 🔗 Links
-[![Rahul Sinha]()](https://www.linkedin.com/in/rahul-sinha84/)
+[![Rahul Sinha]()](https://www.linkedin.com/in/rahul-sinha84/) 
+
 [![Raj Rawat]()](https://www.linkedin.com/in/raj-rawat-b10269188/)
