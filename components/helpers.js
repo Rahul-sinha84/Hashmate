@@ -47,7 +47,7 @@ export const authenticateWithEthereum = async (
 export const storeOnIpfs = async (obj, ceramic) => {
   try {
     const blob = objToBlob(obj);
-    const { name, link } = obj;
+    const { username, domain, password, url } = obj;
 
     const { encryptedFile, symmetricKey } = await LitJsSdk.encryptFile({
       file: blob,
@@ -60,8 +60,8 @@ export const storeOnIpfs = async (obj, ceramic) => {
     const streamId = await createDocument(
       ceramic,
       {
-        name,
-        link,
+        name: domain,
+        link: url,
         timestamp: `${now}`,
         encSecret: unit8ArrayToString(symmetricKey),
         cid,
@@ -82,7 +82,7 @@ export const storeOnIpfs = async (obj, ceramic) => {
       sessions: [
         {
           id: streamId.toUrl(),
-          name,
+          name: domain,
         },
         ..._sessions,
       ],
@@ -100,14 +100,19 @@ export const getItems = async (ceramic) => {
     });
 
     const streams = await idx.get(config?.definitions?.HashmateProfile);
+    if (!streams) return [];
     console.log(streams.sessions);
-
-    streams.sessions.forEach(async (val, ind) => {
-      await loadSession(val.id, ceramic).then(async (res) => {
-        const data = res.content;
-        await decryptData(data.cid, data.encSecret);
-      });
-    });
+    // let reqData = [];
+    // streams.sessions.forEach(async (val, ind) => {
+    //   await loadSession(val.id, ceramic).then(async (res) => {
+    //     const data = res.content;
+    //     const jsonFile = await decryptData(data.cid, data.encSecret);
+    //     reqData.push(jsonFile);
+    //   });
+    // });
+    // console.log({ reqData });
+    // return reqData;
+    return streams.sessions;
   } catch (err) {
     console.log(err);
   }

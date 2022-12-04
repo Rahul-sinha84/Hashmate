@@ -55,7 +55,7 @@ const utils = {
       });
 
       const jsonFile = JSON.parse(await blob.text());
-      console.log(jsonFile);
+      return jsonFile;
     } catch (err) {
       console.log(err);
     }

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 import {
   CURRENT_ACCOUNT,
+  IS_CERAMIC_AUTHENTICATED,
   LOAD,
   METAMASK_CONNECT_FUNCTION,
   METAMASK_STATUS,
+  SHOW_LOADER,
 } from "./types";
 
 const metamaskStatus = (state = false, action) => {
@@ -25,9 +27,21 @@ const load = (state = false, action) => {
   return state;
 };
 
+const showLoader = (state = false, action) => {
+  if (action.type === SHOW_LOADER) return action.payload;
+  return state;
+};
+
+const isCeramicAuthenticated = (state = false, action) => {
+  if (action.type === IS_CERAMIC_AUTHENTICATED) return action.payload;
+  return state;
+};
+
 export default combineReducers({
   metamaskConnectFunction,
   currentAccount,
   metamaskStatus,
   load,
+  showLoader,
+  isCeramicAuthenticated,
 });

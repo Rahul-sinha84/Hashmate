@@ -2,15 +2,16 @@ import { Provider } from "react-redux";
 import Layout from "../components/Layout";
 import { wrapper, store } from "../redux/init";
 import Head from "next/head";
+import "../styles/global.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Layout>
         <Head>
-          <title>Next-Hardhat template</title>
+          <title>Hashmate</title>
         </Head>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </Layout>
     </Provider>
   );
