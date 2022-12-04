@@ -26,9 +26,9 @@ Open http://localhost:3000 with your browser to see the result.
 ## Deployment
 
 
-```bash
+
 https://hashmate.vercel.app/
-```
+
 
 
 ## Tech Stack
@@ -47,5 +47,4 @@ https://hashmate.vercel.app/
 
 ## 🔗 Links
 [![Rahul Sinha]()](https://www.linkedin.com/in/rahul-sinha84/) 
-
 [![Raj Rawat]()](https://www.linkedin.com/in/raj-rawat-b10269188/)
