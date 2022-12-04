@@ -33,15 +33,14 @@ https://hashmate.vercel.app/
 
 ## Tech Stack
 
-**Client :**  NextJs 
+**Client :**  NextJs , ReduxJs , EthersJS , SASS
 
-**Data Storage :** Ceramic & IPFS
-
+**Data Storage :** Ceramic , IPFS(web3.storage)
 
 ## Features
 
 - Decentralised storage of passwords
-- DID passwords
+- Built using IPFS with simple Encryption and wallet DIDs
 - LIT Protocol for encryption/decryption
 - Easy to use
 
